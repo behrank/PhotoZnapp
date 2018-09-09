@@ -9,13 +9,23 @@
 import UIKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        if AppDelegate.keychain.getBool(TAG_KEYCHAIN_AUTHENTICATION) == true {
+//            self.window?.rootViewController = BaseTabBarController.fromStoryboard(.dashboard)
+//        }
+//        else{
+//            self.window?.rootViewController = BaseNavigationController.fromStoryboard(.landing)
+//        }
+        
+        //self.window?.rootViewController = BaseNavigationController.fromStoryboard(.landing)
+
         return true
     }
 
