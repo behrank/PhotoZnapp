@@ -179,4 +179,46 @@ extension UIView {
             }
         }
     }
+    public func addConstaintsToSuperview(leftOffset: CGFloat, topOffset: CGFloat) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint(item: self,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self.superview,
+                           attribute: .leading,
+                           multiplier: 1,
+                           constant: leftOffset).isActive = true
+        
+        NSLayoutConstraint(item: self,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: self.superview,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: topOffset).isActive = true
+    }
+    
+    public func addConstaints(height: CGFloat, width: CGFloat) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint(item: self,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1,
+                           constant: height).isActive = true
+        
+        
+        NSLayoutConstraint(item: self,
+                           attribute: .width,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1,
+                           constant: width).isActive = true
+    }
 }

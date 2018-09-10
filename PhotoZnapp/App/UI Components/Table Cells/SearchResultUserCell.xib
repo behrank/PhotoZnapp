@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultUserCellIdentifier" rowHeight="66" id="feJ-W5-rit" customClass="SearchResultUserCell" customModule="PhotoZnapp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="feJ-W5-rit" id="nxn-gA-Vu0">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kBP-my-T8u" customClass="PhotoView" customModule="PhotoZnapp" customModuleProvider="target">
+                        <rect key="frame" x="16" y="11" width="42" height="42"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="322-lr-6g5"/>
+                            <constraint firstAttribute="height" constant="42" id="qvs-kO-uww"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="21"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhR-Cl-PMn" customClass="BaseUILabelMedium" customModule="PhotoZnapp" customModuleProvider="target">
+                        <rect key="frame" x="66" y="8" width="301" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="cp6-iR-HV1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EhR-Cl-PMn" firstAttribute="leading" secondItem="kBP-my-T8u" secondAttribute="trailing" constant="8" id="1pz-lE-36l"/>
+                    <constraint firstAttribute="trailing" secondItem="EhR-Cl-PMn" secondAttribute="trailing" constant="8" id="DgK-lW-bc5"/>
+                    <constraint firstItem="kBP-my-T8u" firstAttribute="top" secondItem="nxn-gA-Vu0" secondAttribute="topMargin" id="YXv-cu-XUu"/>
+                    <constraint firstItem="kBP-my-T8u" firstAttribute="leading" secondItem="nxn-gA-Vu0" secondAttribute="leadingMargin" id="Zcr-B6-13f"/>
+                    <constraint firstItem="EhR-Cl-PMn" firstAttribute="top" secondItem="nxn-gA-Vu0" secondAttribute="top" constant="8" id="y2B-dg-2Bq"/>
+                    <constraint firstAttribute="bottom" secondItem="EhR-Cl-PMn" secondAttribute="bottom" constant="8" id="yc1-HA-zsw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgUserProfile" destination="kBP-my-T8u" id="O9a-0e-YgD"/>
+                <outlet property="lblUsername" destination="EhR-Cl-PMn" id="8vD-k7-i3V"/>
+            </connections>
+            <point key="canvasLocation" x="-212" y="176.31184407796104"/>
+        </tableViewCell>
+    </objects>
+</document>

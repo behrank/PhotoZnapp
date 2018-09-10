@@ -21,7 +21,6 @@ enum Gallery
                 self.page = nextPage
             }
             
-            
             func requestAsTarget() ->NetworkAPI {
                 return NetworkAPI.getFeed(self)
             }

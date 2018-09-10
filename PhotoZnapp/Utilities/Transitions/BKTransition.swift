@@ -9,63 +9,65 @@
 import Foundation
 import UIKit
 
-let animationDuration = 0.35
-let animationScale = screenWidth/gridWidth
+let ANIMATION_DURATION = 0.35
+let ANIMATION_SCALE = screenWidth/gridWidth
 
 class BKTransition : NSObject , UIViewControllerAnimatedTransitioning{
     var presenting = false
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval{
-        return animationDuration
+        return ANIMATION_DURATION
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
         let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as UIViewController!
         let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as UIViewController!
         let containerView = transitionContext.containerView
-        
+        let offsetY : CGFloat = fromViewController!.navigationController!.isNavigationBarHidden ? 0.0 : navigationHeaderAndStatusbarHeight
+
         if presenting {
             let toView = toViewController!.view!
             containerView.addSubview(toView)
             toView.isHidden = true
             
-            let waterFallView = (toViewController! as! BKTransitionProtocol).transitionCollectionView()!
+            let tappedView = (toViewController! as! BKTransitionProtocol).transitionCollectionView()!
             let pageView = (fromViewController as! BKTransitionProtocol).transitionCollectionView()!
-            waterFallView.layoutIfNeeded()
+            tappedView.layoutIfNeeded()
             
             let indexPath = pageView.fromPageIndexPath()
-            let gridView = waterFallView.cellForItem(at: indexPath)
+            let gridView = tappedView.cellForItem(at: indexPath)
             let leftUpperPoint = gridView!.convert(CGPoint.zero, to: toViewController!.view)
             
             let snapShot = (gridView as! BKTansitionGridViewProtocol).snapShotForTransition()
-            snapShot?.transform = CGAffineTransform(scaleX: animationScale, y: animationScale)
-            
-            let pullOffsetY = (fromViewController as! BKPageViewControllerProtocol).pageViewCellScrollViewContentOffset().y
-            let offsetY : CGFloat = fromViewController!.navigationController!.isNavigationBarHidden ? 0.0 : navigationHeaderAndStatusbarHeight
-            
-            snapShot?.origin(CGPoint(x: 10, y: -pullOffsetY+offsetY))
+            snapShot?.transform = CGAffineTransform(scaleX: ANIMATION_SCALE, y: ANIMATION_SCALE)
+        
+            snapShot?.origin(CGPoint(x: 0, y: 0))
             containerView.addSubview(snapShot!)
             
-            let scale = (screenWidth-20)/gridView!.frame.width
+            let scale = (screenWidth)/gridView!.frame.width
             let scaleTrans = CGAffineTransform.init(scaleX: scale, y: scale)
 
-            //Set toFrame frame before animation
             toView.isHidden = false
             toView.alpha = 1
             toView.transform = scaleTrans
-            toView.frame = CGRect(x: -(leftUpperPoint.x * scale)+10,y: -((leftUpperPoint.y) * scale)+64,
+            toView.frame = CGRect(x: -(leftUpperPoint.x * scale),y: -((leftUpperPoint.y) * scale)+offsetY,
                                   width: toView.frame.size.width, height: toView.frame.size.height)
+            
             let whiteViewContainer = UIView(frame: screenBounds)
             whiteViewContainer.backgroundColor = UIColor.white
+            
             containerView.addSubview(snapShot!)
             containerView.insertSubview(whiteViewContainer, belowSubview: toView)
+            
             snapShot?.isHidden = true
-            UIView.animate(withDuration: animationDuration, animations: {
+            
+            UIView.animate(withDuration: ANIMATION_DURATION, animations: {
                 
                 snapShot?.layer.opacity = 0
+                
                 toView.transform = CGAffineTransform.identity
                 toView.frame = CGRect(x: 0, y: navigationHeaderAndStatusbarHeight, width: toView.frame.size.width, height: toView.frame.size.height);
-                
                 toView.alpha = 1
                 
             }, completion:{finished in
@@ -90,31 +92,29 @@ class BKTransition : NSObject , UIViewControllerAnimatedTransitioning{
             
             let leftUpperPoint = gridView!.convert(CGPoint.zero, to: nil)
             pageView.isHidden = true
-            pageView.scrollToItem(at: indexPath as IndexPath, at:.centeredHorizontally, animated: false)
             
-            let offsetY : CGFloat = (fromViewController!.navigationController!.isNavigationBarHidden ? 0.0 : navigationHeaderAndStatusbarHeight) + 10
-            let offsetStatusBar : CGFloat = fromViewController!.navigationController!.isNavigationBarHidden ? 0.0 :
-            statubarHeight;
             let snapShot = (gridView as! BKTansitionGridViewProtocol).snapShotForTransition()
             containerView.addSubview(snapShot!)
             snapShot?.origin(leftUpperPoint)
-            let scale = (screenWidth-20)/gridView!.frame.width
+        
+            let scale = (screenWidth)/gridView!.frame.width
             let scaleTrans = CGAffineTransform.init(scaleX: scale, y: scale)
-
-            UIView.animate(withDuration: animationDuration, animations: {
-                snapShot?.transform = scaleTrans
-                snapShot?.frame = CGRect(x: 10, y: offsetY, width: (snapShot?.frame.size.width)!, height: (snapShot?.frame.size.height)!)
+            
+            UIView.animate(withDuration: ANIMATION_DURATION, animations: {
                 
+                snapShot?.transform = scaleTrans
+                snapShot?.frame = CGRect(x: 0, y: offsetY, width: (snapShot?.frame.size.width)!, height: (snapShot?.frame.size.height)!)
+
                 fromView.alpha = 1
                 fromView.transform = scaleTrans
                 
-                fromView.frame = CGRect(x: -(leftUpperPoint.x)*scale + 10,
-                                        y: -(leftUpperPoint.y-64)*scale + 64,
+                fromView.frame = CGRect(x: -(leftUpperPoint.x)*scale,
+                                        y: -(leftUpperPoint.y-offsetY)*scale + offsetY,
                                         width: fromView.frame.size.width,
                                         height: fromView.frame.size.height)
             },completion:{finished in
                 if finished {
-                    snapShot?.isHidden = true
+                    snapShot?.isHidden = false
                     snapShot?.removeFromSuperview()
                     pageView.isHidden = false
                     fromView.transform = CGAffineTransform.identity

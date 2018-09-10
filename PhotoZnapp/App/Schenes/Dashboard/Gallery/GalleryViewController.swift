@@ -19,12 +19,23 @@ class GalleryViewController: BaseCollectionViewController, GalleryDisplayLogic,B
 {
     var interactor: GalleryBusinessLogic?
     var router: (NSObjectProtocol & GalleryRoutingLogic & GalleryDataPassing)?
+ 
+    var loadingView = Loader.fromNib()
     var isInfiniteLoaderTriggered = false
     var viewData = [Photo]()
     {
         didSet {
             if currentPage == 1 {
+                loadingView.isOnFire = false
+                collectionView?.backgroundView = nil
                 collectionView?.reloadData()
+                
+                if self.collectionView?.layer.opacity == 0.5 {
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.collectionView?.layer.opacity = 1
+                    })
+                    refreshCntrl.endRefreshing()
+                }
             }
         }
     }
@@ -34,7 +45,15 @@ class GalleryViewController: BaseCollectionViewController, GalleryDisplayLogic,B
             interactor?.GetPhotoFeed(req: Gallery.GetFeed.Request.init(nextPage: currentPage))
         }
     }
-    
+    lazy var refreshCntrl: UIRefreshControl = {
+        let refreshCntrl = UIRefreshControl()
+        refreshCntrl.addTarget(self, action:
+            #selector(GalleryViewController.handleRefresh(_:)),
+                               for: UIControlEvents.valueChanged)
+        refreshCntrl.tintColor = UIColor.red
+        refreshCntrl.tag = 1
+        return refreshCntrl
+    }()
     let delegateHolder = NavigationControllerDelegate()
 
     // MARK: Object lifecycle
@@ -65,20 +84,36 @@ class GalleryViewController: BaseCollectionViewController, GalleryDisplayLogic,B
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController!.delegate = delegateHolder
-        let titImage = UIImage(named: "icon_40pt")
-        self.navigationItem.titleView = UIImageView(image:titImage)
+     
         setupCollectionView()
+        setupNavigation()
+        
         interactor?.GetPhotoFeed(req: Gallery.GetFeed.Request(nextPage: currentPage))
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-    
+    private func setupNavigation() {
+        self.navigationController!.delegate = delegateHolder
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named:"close")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named:"close")
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0.29, green:0.29, blue:0.29, alpha:1.0)
+        self.navigationController?.navigationBar.topItem?.title = " "
+        self.hideNavBarBorder()
+    }
     private func setupCollectionView() {
         collectionView?.prefetchDataSource = self
         collectionView?.setCollectionViewLayout(PhotoZnappLayout(), animated: false)
         collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: PHOTO_CELL_IDENTIFIER)
+        collectionView?.backgroundView = loadingView
+        
+        if #available(iOS 10.0, *) {
+            collectionView?.refreshControl = refreshCntrl
+        } else {
+            collectionView?.addSubview(refreshCntrl)
+        }
+
+        loadingView.isOnFire = true
         
         if let layout = collectionView?.collectionViewLayout as? PhotoZnappLayout {
             layout.delegate = self
@@ -139,10 +174,22 @@ extension GalleryViewController {
         }
         
         viewData = viewModel.photos
-        collectionView?.reloadData()
     }
     func hideNetworkActivity() {popNetworkActivity()}
     func displayNetworkActivity() {pushNetworkActivity()}
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.collectionView?.layer.opacity = 0.5
+        }) { (isFinished) in
+            
+            if isFinished {
+                self.viewData.removeAll()
+                self.collectionView?.reloadData()
+                self.currentPage = 1
+            }
+        }
+    }
     
     //MARK : Collection Cells
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -161,7 +208,7 @@ extension GalleryViewController {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if let galleryCell = cell as? PhotoCell {
-            galleryCell.setImageUrl(viewData[indexPath.row].imageUrls.regular)
+            galleryCell.setImageUrl(viewData[indexPath.row].imageUrls.thumb)
         }
     }
     
@@ -178,12 +225,10 @@ extension GalleryViewController : UICollectionViewDataSourcePrefetching {
             return
         }
         
-        
         if indexPaths.contains(IndexPath(row: viewData.count-1, section: 0)) {
             currentPage = currentPage + 1
             isInfiniteLoaderTriggered = true
         }
-
     }
 }
 extension GalleryViewController : PhotoZnappLayoutDelegate {

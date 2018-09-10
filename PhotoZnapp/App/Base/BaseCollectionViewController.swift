@@ -21,7 +21,7 @@ class BaseCollectionViewController : UICollectionViewController {
     //MARK: UI Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        handleNavbarTitleView()
         if self.tabBarController != nil {
             self.tabBarController!.tabBar.layer.borderWidth = 0.50
             self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
@@ -87,7 +87,7 @@ fileprivate extension BaseCollectionViewController {
     }
     
     var titleImage : UIImageView {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "logo_24"))
+        let imageView = UIImageView(image: UIImage(named: "icon_40pt"))
         return imageView
     }
     

@@ -27,6 +27,7 @@ class BaseViewController:UIViewController {
             self.tabBarController!.tabBar.layer.borderColor = UIColor.clear.cgColor
             self.tabBarController?.tabBar.clipsToBounds = true
         }
+        
         if shouldListenKeyboardNotification() {
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShownNotif(_:)), name: .UIKeyboardWillShow, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideNotif(_:)), name: .UIKeyboardWillHide, object: nil)
@@ -76,20 +77,29 @@ class BaseViewController:UIViewController {
     func popNetworkActivity() {
         if activityCount > 0 { activityCount = 0 }
     }
-}
-fileprivate extension BaseViewController {
-    
-    func handleNavbarTitleView() {
-        guard let _ = navTitle() else {
-            self.navigationItem.titleView = titleImage
-            return
+    func showAlert(title:String, message:String,isQuestion:Bool,buttonTitles:[String],completion:(() ->Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: buttonTitles.count == 0 ? "Ok" : buttonTitles[0], style: .default, handler: { action in
+            completion?()
+        }))
+        
+        if isQuestion {
+            alert.addAction(UIAlertAction(title: buttonTitles[1], style: .cancel,handler: { action in
+                completion?()
+            }))
+        }
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
         }
     }
-    
-    var titleImage : UIImageView {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "logo_24"))
-        return imageView
+    func handleNavbarTitleView() {
+        let titleImage = UIImageView(image: UIImage(named: "icon_40pt"))
+        self.navigationItem.titleView = titleImage
     }
+    
+}
+fileprivate extension BaseViewController {
     
     @objc func keyboardWillShownNotif(_ notification:Notification) {
         self.handleKeyboardNotif(notification: notification, willShow: true)

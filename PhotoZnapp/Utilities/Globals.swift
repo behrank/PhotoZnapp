@@ -8,8 +8,16 @@
 
 import UIKit
 
+
+let SEARCHRESULT_USERCELL_IDENTIFIER = "SearchResultUserCellIdentifier"
+let SEARCHRESULT_USERCELL_NIB = "SearchResultUserCell"
+
+let SEARCHRESULT_CELL_IDENTIFIER = "SearchResultTableViewCellIdentifier"
+let SEARCHRESULT_CELL_NIB = "SearchResultTableViewCell"
+
 let HORIZONTAL_CELL_IDENTIFIER = "HorizontalCellIdentifier"
 let HORIZONTAL_CELL_NIB = "HorizontalPageViewCell"
+
 let PROFILE_ROWCELL_IDENTIFIER = "ProfileRowCellIdentifier"
 let PROFILE_ROWCELL_NIB = "ProfileRowCell"
 
@@ -21,11 +29,13 @@ let PHOTO_TABLECELL_IDENTIFIER = "PhotoTableCellIdentifier"
 let PHOTO_TABLECELL_REUSE = "PhotoTableCellReuse"
 let PHOTO_TABLECELL_NIB = "PhotoTableViewCell"
 
+let KEY_USER_AUTHENTICATED = "userIsAuthenticated"
+
 let screenBounds = UIScreen.main.bounds
 let screenSize   = screenBounds.size
 let screenWidth  = screenSize.width
 let screenHeight = screenSize.height
-let gridWidth : CGFloat = (screenSize.width/2)
+let gridWidth : CGFloat = (screenSize.width/2) - 20
 let navigationHeight : CGFloat = 44.0
 let statubarHeight : CGFloat = 20.0
 let navigationHeaderAndStatusbarHeight : CGFloat = navigationHeight + statubarHeight
@@ -65,37 +75,22 @@ enum Storyboard : String {
     //These are the Storyboard names
     case main = "Dashboard"
     case landing = "Landing"
-    case detail = "Detail"
-    case profile = "Profile"
     enum Identifier : String {
         
         //These are the ViewController Storyboard Identifiers
         case empty = ""
         case landing = "landingVC"
-        case welcome = "welcomeVC"
         case dashboard = "baseTabController"
-        case detailPage = "detailVC"
-        case mapPage = "mapVC"
-        case profilePage = "profileVC"
-        case login = "loginVC"
-        case register = "registerVC"
-        case loginOpt = "loginOptVC"
-        case userInfo = "userInfoVC"
-        case newPost = "newPostVC"
         case pageVC = "pageVC"
         case tableVC = "tableVC"
-        
+        case loginVC = "loginVC"
         //Storyboards owning viewcontrollers
         var storyboardName : Storyboard {
             switch self {
-            case .landing,.login,.register,.loginOpt,.welcome:
+            case .landing,.loginVC:
                 return .landing
-            case .dashboard,.mapPage,.newPost:
+            case .dashboard:
                 return .main
-            case .detailPage,.userInfo,.pageVC,.tableVC:
-                return .detail
-            case .profilePage:
-                return .profile
             default: return .main
             }
         }

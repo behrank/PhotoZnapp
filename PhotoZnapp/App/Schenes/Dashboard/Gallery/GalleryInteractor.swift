@@ -31,7 +31,7 @@ class GalleryInteractor: GalleryBusinessLogic, GalleryDataStore
             self.presenter?.showFeedData(viewModel: viewData)
             self.presenter?.hideNetworkActivity()
         }, failure: { (error) in
-            //
+            //TODO: Custom alert view
         })
     }
 }

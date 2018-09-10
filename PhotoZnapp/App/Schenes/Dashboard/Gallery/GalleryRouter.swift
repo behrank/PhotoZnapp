@@ -30,7 +30,7 @@ class GalleryRouter: NSObject, GalleryRoutingLogic, GalleryDataPassing
         layout.scrollDirection = .horizontal
         
         let pageViewController =
-            NTHorizontalPageViewController(collectionViewLayout: layout, currentIndexPath:indexPath)
+            HorizontalPageViewController(collectionViewLayout: layout, currentIndexPath:indexPath)
         pageViewController.imageNameList = viewData
         
         viewController?.navigationController?.pushViewController(pageViewController, animated: true)

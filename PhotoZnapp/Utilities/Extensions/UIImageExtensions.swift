@@ -12,6 +12,13 @@ import QuartzCore
 
 extension UIImage {
     
+    open class func loadFromCacheFor(url: String) ->UIImage?{
+        //Check cache first
+        if let imgFromCache = imageCache.object(forKey: url as NSString) {
+            return imgFromCache
+        }
+        return nil
+    }
     var averageColor: UIColor? {
         guard let inputImage = CIImage(image: self) else { return nil }
         let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)

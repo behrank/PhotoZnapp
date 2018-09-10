@@ -9,15 +9,35 @@
 import Foundation
 import UIKit
 
-enum ImageSizes {
-    case raw
-    case full
-    case regular
-    case small
-    case thumb
+//Search
+protocol SearchResponse {
+    var total : Int { get set }
+    var totalPages : Int { get set }
+}
+struct SearchPhotoResponse : SearchResponse,Decodable {
+    var total: Int = 0
+    var totalPages: Int = 0
+    var results : [Photo]?
+    
+    private enum CodingKeys : String ,CodingKey {
+        case total = "total"
+        case totalPages = "total_pages"
+        case results = "results"
+    }
+}
+struct SearchUserResponse : SearchResponse,Decodable {
+    var total: Int = 0
+    var totalPages: Int = 0
+    var results : [User]?
+    
+    private enum CodingKeys : String ,CodingKey {
+        case total = "total"
+        case totalPages = "total_pages"
+        case results = "results"
+    }
 }
 
-
+//Gallery
 struct Photo : Decodable {
     var id : String = ""
     var width : Int = 0

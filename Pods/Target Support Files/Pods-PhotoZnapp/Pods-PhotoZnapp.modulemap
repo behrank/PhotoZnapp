@@ -1,0 +1,6 @@
+framework module Pods_PhotoZnapp {
+  umbrella header "Pods-PhotoZnapp-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g4T-em-fnp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,26 +10,62 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="GqH-US-Swe">
             <objects>
-                <viewController id="i2l-Fj-npD" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPL-kz-yEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="i2l-Fj-npD" customClass="SearchViewController" customModule="PhotoZnapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BNR-p9-S5q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dcm-54-ea0">
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="i2l-Fj-npD" id="FkF-s5-dh5"/>
+                                    <outlet property="delegate" destination="i2l-Fj-npD" id="gvJ-Oa-szV"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nUV-vK-pOg">
+                                <rect key="frame" x="97.5" y="72" width="180" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="LgX-Rl-xKD"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Photo"/>
+                                    <segment title="User"/>
+                                </segments>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="i2l-Fj-npD" eventType="valueChanged" id="YRs-f8-Rvp"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nUV-vK-pOg" firstAttribute="top" secondItem="NJ3-Eh-2eK" secondAttribute="top" constant="8" id="3Ie-zT-6uo"/>
+                            <constraint firstItem="dcm-54-ea0" firstAttribute="trailing" secondItem="NJ3-Eh-2eK" secondAttribute="trailing" id="9fX-QN-NVz"/>
+                            <constraint firstItem="dcm-54-ea0" firstAttribute="bottom" secondItem="NJ3-Eh-2eK" secondAttribute="bottom" id="Cwh-KF-yCZ"/>
+                            <constraint firstItem="dcm-54-ea0" firstAttribute="top" secondItem="nUV-vK-pOg" secondAttribute="bottom" constant="8" id="GMk-gF-j2o"/>
+                            <constraint firstItem="nUV-vK-pOg" firstAttribute="centerX" secondItem="NJ3-Eh-2eK" secondAttribute="centerX" id="idT-bS-SEU"/>
+                            <constraint firstItem="dcm-54-ea0" firstAttribute="leading" secondItem="NJ3-Eh-2eK" secondAttribute="leading" id="tH8-ir-UZL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="NJ3-Eh-2eK"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wz4-mw-3t5"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="wz4-mw-3t5"/>
+                    <connections>
+                        <outlet property="segment" destination="nUV-vK-pOg" id="3u8-7m-eUn"/>
+                        <outlet property="tableSearchResults" destination="dcm-54-ea0" id="y4B-VS-Jtv"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jPL-kz-yEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="348" y="-925.18740629685169"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Base Tab Bar Controller-->
         <scene sceneID="Jgy-AK-uIX">
             <objects>
-                <tabBarController storyboardIdentifier="baseTabController" id="g4T-em-fnp" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="baseTabController" id="g4T-em-fnp" customClass="BaseTabBarController" customModule="PhotoZnapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9vt-Db-2lk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -57,6 +93,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XtI-RE-qaW">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.69067837732919257" green="0.89589061163043471" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -70,7 +107,7 @@
         <!--Feed-->
         <scene sceneID="pKj-Ws-2h1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c28-PT-oNL" customClass="BaseNavigationController" customModule="PhotoZnapp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c28-PT-oNL" customClass="AnimatedNavigationController" customModule="PhotoZnapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="001-grid" id="eZ4-hZ-Sbd">
                         <color key="badgeColor" red="0.1764705882" green="0.61568627450000002" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>

@@ -13,7 +13,7 @@ protocol Networkable {
     var provider : MoyaProvider<NetworkAPI> { get }
     /**
      Sends a request with completion and failure completion blocks
-     - parameter target: NearAPI item
+     - parameter target: API item
      - returns: If success returns an ApiResponse object
      */
     func call<T: Decodable>(target:NetworkAPI, completion:@escaping (T) -> (), failureCompletion:@escaping (String?)-> Void)

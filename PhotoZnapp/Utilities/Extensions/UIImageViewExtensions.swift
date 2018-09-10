@@ -14,7 +14,7 @@ class PhotoView : UIImageView {
     
     var imageUrlString : String?
     
-    func loadImageUsingUrlString(urlString:String) {
+    func loadImageUsingUrlString(urlString:String,completion:(()->Void)?) {
         
         imageUrlString = urlString
         
@@ -22,13 +22,14 @@ class PhotoView : UIImageView {
             print("Error: cannot create URL")
             return
         }
-        self.image = nil
-        
+
         //Check cache first
         if let imgFromCache = imageCache.object(forKey: urlString as NSString) {
             self.image = imgFromCache
+            completion?()
             return
         }
+        self.image = nil
         self.layer.opacity = 0
         let urlRequest = URLRequest(url: url)
         let config = URLSessionConfiguration.default
@@ -54,13 +55,15 @@ class PhotoView : UIImageView {
                 
                 imageCache.setObject(imageToCache!, forKey: urlString as NSString)
                 self.setImageVisibleWithAnimation()
+                completion?()
             }
         }
         task.resume()
     }
 }
 
-extension PhotoView {
+extension UIImageView {
+        
     func changeImage(with secondImage:UIImage)
     {
         let fadeAnim:CABasicAnimation = CABasicAnimation(keyPath: "contents");

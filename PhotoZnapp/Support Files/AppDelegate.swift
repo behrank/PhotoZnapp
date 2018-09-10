@@ -17,15 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        if AppDelegate.keychain.getBool(TAG_KEYCHAIN_AUTHENTICATION) == true {
-//            self.window?.rootViewController = BaseTabBarController.fromStoryboard(.dashboard)
-//        }
-//        else{
-//            self.window?.rootViewController = BaseNavigationController.fromStoryboard(.landing)
-//        }
+        if UserDefaults.standard.bool(forKey: KEY_USER_AUTHENTICATED) {
+            self.window?.rootViewController = BaseTabBarController.fromStoryboard(.dashboard)
+        }
+        else{
+            self.window?.rootViewController = BaseNavigationController.fromStoryboard(.landing)
+        }
         
-        //self.window?.rootViewController = BaseNavigationController.fromStoryboard(.landing)
-
         return true
     }
 

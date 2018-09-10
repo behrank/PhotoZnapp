@@ -26,6 +26,5 @@ class GalleryPresenter: GalleryPresentationLogic
     }
     func hideNetworkActivity() {
         viewController?.hideNetworkActivity()
-
     }
 }

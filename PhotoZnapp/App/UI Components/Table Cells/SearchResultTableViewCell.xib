@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultTableViewCellIdentifier" rowHeight="286" id="0Hm-yr-KAM" customClass="SearchResultTableViewCell" customModule="PhotoZnapp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="286"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Hm-yr-KAM" id="Ic9-cr-z8G">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="285.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="age-mz-wKO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CN5-cP-8EG" customClass="PhotoView" customModule="PhotoZnapp" customModuleProvider="target">
+                        <rect key="frame" x="8" y="233" width="42" height="42"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="9KM-ug-jEE"/>
+                            <constraint firstAttribute="width" constant="42" id="smE-ma-TBe"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="21"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tc6-ey-sNu" customClass="BaseUILabelMedium" customModule="PhotoZnapp" customModuleProvider="target">
+                        <rect key="frame" x="58" y="233" width="78.5" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="dLP-JS-bj8"/>
+                            <constraint firstAttribute="height" constant="24" id="z9F-ap-cLL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mw9-95-Gch" customClass="BaseUILabelMedium" customModule="PhotoZnapp" customModuleProvider="target">
+                        <rect key="frame" x="58" y="257" width="25.5" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="qe9-n0-n5V"/>
+                            <constraint firstAttribute="height" constant="18" id="rMN-2m-QFE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IMo-zg-Lmw" customClass="PhotoView" customModule="PhotoZnapp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="225" id="9eQ-O4-bNN"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="age-mz-wKO" firstAttribute="height" secondItem="IMo-zg-Lmw" secondAttribute="height" id="2Z6-f5-PlC"/>
+                    <constraint firstItem="IMo-zg-Lmw" firstAttribute="top" secondItem="Ic9-cr-z8G" secondAttribute="top" id="4Aq-1u-dgi"/>
+                    <constraint firstItem="IMo-zg-Lmw" firstAttribute="leading" secondItem="Ic9-cr-z8G" secondAttribute="leading" id="BW7-NN-tcz"/>
+                    <constraint firstItem="CN5-cP-8EG" firstAttribute="top" secondItem="IMo-zg-Lmw" secondAttribute="bottom" constant="8" id="Ipp-Zi-lgi"/>
+                    <constraint firstItem="mw9-95-Gch" firstAttribute="leading" secondItem="CN5-cP-8EG" secondAttribute="trailing" constant="8" id="JCc-Lw-Elx"/>
+                    <constraint firstAttribute="bottom" secondItem="CN5-cP-8EG" secondAttribute="bottom" constant="8" id="LCy-JD-Xi2"/>
+                    <constraint firstItem="mw9-95-Gch" firstAttribute="top" secondItem="tc6-ey-sNu" secondAttribute="bottom" id="RUv-hT-6fo"/>
+                    <constraint firstAttribute="trailing" secondItem="age-mz-wKO" secondAttribute="trailing" id="Uj8-WK-f3e"/>
+                    <constraint firstItem="CN5-cP-8EG" firstAttribute="leading" secondItem="Ic9-cr-z8G" secondAttribute="leading" constant="8" id="UxG-gs-GIr"/>
+                    <constraint firstItem="age-mz-wKO" firstAttribute="top" secondItem="Ic9-cr-z8G" secondAttribute="top" id="aGj-LG-Sqx"/>
+                    <constraint firstItem="age-mz-wKO" firstAttribute="leading" secondItem="Ic9-cr-z8G" secondAttribute="leading" id="gf1-Rf-bUc"/>
+                    <constraint firstItem="tc6-ey-sNu" firstAttribute="top" secondItem="IMo-zg-Lmw" secondAttribute="bottom" constant="8" id="iGx-GK-PTg"/>
+                    <constraint firstItem="tc6-ey-sNu" firstAttribute="leading" secondItem="CN5-cP-8EG" secondAttribute="trailing" constant="8" id="jlm-EB-NBc"/>
+                    <constraint firstAttribute="trailing" secondItem="IMo-zg-Lmw" secondAttribute="trailing" id="kTw-Nq-reb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgPhoto" destination="IMo-zg-Lmw" id="2OX-RA-bmp"/>
+                <outlet property="imgUserProfile" destination="CN5-cP-8EG" id="BN4-Ix-oDe"/>
+                <outlet property="lblSentDate" destination="mw9-95-Gch" id="ixV-GJ-sfX"/>
+                <outlet property="lblUsername" destination="tc6-ey-sNu" id="ecG-9d-7zV"/>
+                <outlet property="viewImgWrapper" destination="IMo-zg-Lmw" id="KQH-5R-3vU"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="257.27136431784112"/>
+        </tableViewCell>
+    </objects>
+</document>
