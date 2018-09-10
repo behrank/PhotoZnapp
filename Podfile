@@ -11,8 +11,6 @@ target 'PhotoZnapp' do
   # Pods for PhotoZnapp
   pod 'Alamofire', '~> 4.5'
   pod 'Moya', '~> 10.0'  
-  pod 'SDWebImage', '~> 4.0'
-  pod 'PureLayout'
   pod 'lottie-ios'
 
   target 'PhotoZnappTests' do
