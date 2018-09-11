@@ -33,7 +33,6 @@
 		0F451000213971AF00D6B363 /* BaseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450FF4213971AE00D6B363 /* BaseTextView.swift */; };
 		0F451001213971AF00D6B363 /* BaseUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450FF6213971AE00D6B363 /* BaseUILabel.swift */; };
 		0F451002213971AF00D6B363 /* BaseUILabel+Subs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450FF7213971AE00D6B363 /* BaseUILabel+Subs.swift */; };
-		0F451003213971AF00D6B363 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450FF9213971AE00D6B363 /* BaseTableViewCell.swift */; };
 		0F451004213971AF00D6B363 /* BaseUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450FFB213971AE00D6B363 /* BaseUIButton.swift */; };
 		0F451005213971AF00D6B363 /* BaseUIButton+Subs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450FFC213971AE00D6B363 /* BaseUIButton+Subs.swift */; };
 		0F451006213971AF00D6B363 /* BaseUITextField+Subs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450FFE213971AF00D6B363 /* BaseUITextField+Subs.swift */; };
@@ -147,7 +146,6 @@
 		0F450FF4213971AE00D6B363 /* BaseTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextView.swift; sourceTree = "<group>"; };
 		0F450FF6213971AE00D6B363 /* BaseUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUILabel.swift; sourceTree = "<group>"; };
 		0F450FF7213971AE00D6B363 /* BaseUILabel+Subs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseUILabel+Subs.swift"; sourceTree = "<group>"; };
-		0F450FF9213971AE00D6B363 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		0F450FFB213971AE00D6B363 /* BaseUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIButton.swift; sourceTree = "<group>"; };
 		0F450FFC213971AE00D6B363 /* BaseUIButton+Subs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseUIButton+Subs.swift"; sourceTree = "<group>"; };
 		0F450FFE213971AF00D6B363 /* BaseUITextField+Subs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseUITextField+Subs.swift"; sourceTree = "<group>"; };
@@ -330,7 +328,6 @@
 		0F450FF22139718F00D6B363 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
-				0F450FF8213971AE00D6B363 /* BaseTableViewCell */,
 				0F450FF3213971AE00D6B363 /* BaseTextView */,
 				0F450FFA213971AE00D6B363 /* BaseUIButton */,
 				0F450FF5213971AE00D6B363 /* BaseUILabel */,
@@ -359,14 +356,6 @@
 				0F450FF7213971AE00D6B363 /* BaseUILabel+Subs.swift */,
 			);
 			path = BaseUILabel;
-			sourceTree = "<group>";
-		};
-		0F450FF8213971AE00D6B363 /* BaseTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				0F450FF9213971AE00D6B363 /* BaseTableViewCell.swift */,
-			);
-			path = BaseTableViewCell;
 			sourceTree = "<group>";
 		};
 		0F450FFA213971AE00D6B363 /* BaseUIButton */ = {
@@ -916,7 +905,6 @@
 				0F451017213C027D00D6B363 /* LoginModels.swift in Sources */,
 				0F9B20FF213FF12D00C86FCC /* GalleryWorker.swift in Sources */,
 				0FC75474214708A300A660AF /* SearchResultUserCell.swift in Sources */,
-				0F451003213971AF00D6B363 /* BaseTableViewCell.swift in Sources */,
 				0FC7549121470F9B00A660AF /* LandingInteractor.swift in Sources */,
 				0F3EC93A2145E39000FB3062 /* Loader.swift in Sources */,
 				0FC754682146851200A660AF /* SearchPresenter.swift in Sources */,

@@ -44,10 +44,6 @@ class HorizontalPageViewController : UICollectionViewController, BKTransitionPro
         
         collectionCell.cellInfo = self.imageNameList[indexPath.row]
         collectionCell.tappedAction = {}
-        //collectionCell.pullAction = { offset in
-       //     self.pullOffset = offset
-       //     self.navigationController!.popViewController(animated: true)
-        //}
         collectionCell.setupCell()
         
         return collectionCell
