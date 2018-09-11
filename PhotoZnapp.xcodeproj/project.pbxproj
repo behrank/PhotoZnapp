@@ -423,7 +423,10 @@
 		0F830A55213962E50080EAA8 /* PhotoZnapp */ = {
 			isa = PBXGroup;
 			children = (
-				0F830A84213962F30080EAA8 /* App */,
+				0F830A8B213963870080EAA8 /* Base */,
+				0F830A85213963620080EAA8 /* Schenes */,
+				0F830A86213963620080EAA8 /* Storyboards */,
+				0F450FF22139718F00D6B363 /* UI Components */,
 				0F830A882139636E0080EAA8 /* Moya+Provider */,
 				0F450FDE2139713C00D6B363 /* Resources */,
 				0F830A892139636F0080EAA8 /* Support Files */,
@@ -450,17 +453,6 @@
 				0F830A78213962E60080EAA8 /* Info.plist */,
 			);
 			path = PhotoZnappUITests;
-			sourceTree = "<group>";
-		};
-		0F830A84213962F30080EAA8 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				0F830A8B213963870080EAA8 /* Base */,
-				0F830A85213963620080EAA8 /* Schenes */,
-				0F830A86213963620080EAA8 /* Storyboards */,
-				0F450FF22139718F00D6B363 /* UI Components */,
-			);
-			path = App;
 			sourceTree = "<group>";
 		};
 		0F830A85213963620080EAA8 /* Schenes */ = {
