@@ -30,7 +30,7 @@ enum Search
             }
             
             func requestAsTarget() ->NetworkAPI {
-                return NetworkAPI.makeSearch(self)
+                return NetworkAPI.makeSearch(req:self)
             }
         }
         struct ViewModel

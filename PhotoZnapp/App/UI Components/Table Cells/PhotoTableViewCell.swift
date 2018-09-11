@@ -19,7 +19,7 @@ class PhotoTableViewCell : UITableViewCell {
         self.activity.startAnimating()
         cellData = photo
         cellImage.image = UIImage.loadFromCacheFor(url: photo.imageUrls.thumb)
-        cellImage.loadImageUsingUrlString(urlString: photo.imageUrls.regular, completion: {
+        cellImage.loadImageUsingUrlString(urlString: photo.imageUrls.regular,isLargeView: true, completion: {
             self.activity.stopAnimating()
         })
         consImageViewHeight.constant = cellHeight

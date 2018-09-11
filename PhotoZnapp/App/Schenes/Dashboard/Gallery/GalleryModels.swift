@@ -22,7 +22,7 @@ enum Gallery
             }
             
             func requestAsTarget() ->NetworkAPI {
-                return NetworkAPI.getFeed(self)
+                return NetworkAPI.getFeed(req:self)
             }
         }
         struct ViewModel

@@ -18,7 +18,7 @@ class ProfileRowCell : UITableViewCell {
     
     func setupUI(data:Photo) {
 
-        imgUserProfile.loadImageUsingUrlString(urlString: data.user.profileImages.medium,completion: nil)
+        imgUserProfile.loadImageUsingUrlString(urlString: data.user.profileImages.medium,isLargeView: false,completion: nil)
         lblUsername.text = data.user.name
         lblSentDate.text = data.createdAt.makeDateStringReadable()
         lblDescription.text = data.description ?? ""

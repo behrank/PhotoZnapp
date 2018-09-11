@@ -11,8 +11,8 @@ import Moya
 let PAGE_SIZE = 30
 
 enum NetworkAPI {
-    case getFeed(_ req:Gallery.GetFeed.Request)
-    case makeSearch(_ req:Search.Make.Request)
+    case getFeed(req:Gallery.GetFeed.Request)
+    case makeSearch(req:Search.Make.Request)
 }
 
 // MARK: - TargetType Protocol Implementation

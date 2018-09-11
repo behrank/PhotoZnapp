@@ -14,7 +14,7 @@ class SearchResultUserCell : UITableViewCell {
     @IBOutlet weak var lblUsername: BaseUILabelMedium!
     
     func setupUI(data:User) {
-        imgUserProfile.loadImageUsingUrlString(urlString: data.profileImages.medium,completion: nil)
+        imgUserProfile.loadImageUsingUrlString(urlString: data.profileImages.medium,isLargeView: false,completion: nil)
         lblUsername.text = data.name
     }
 }

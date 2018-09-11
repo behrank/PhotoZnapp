@@ -16,7 +16,7 @@ class PhotoCell : UICollectionViewCell,BKTansitionGridViewProtocol {
         
         contentView.addSubview(imageViewContent)
         imageUrl = url
-        imageViewContent.loadImageUsingUrlString(urlString: imageUrl!,completion: nil)
+        imageViewContent.loadImageUsingUrlString(urlString: imageUrl!,isLargeView: false,completion: nil)
 
     }
     override func layoutSubviews() {

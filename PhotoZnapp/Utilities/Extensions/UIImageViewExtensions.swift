@@ -14,7 +14,7 @@ class PhotoView : UIImageView {
     
     var imageUrlString : String?
     
-    func loadImageUsingUrlString(urlString:String,completion:(()->Void)?) {
+    func loadImageUsingUrlString(urlString:String,isLargeView: Bool,completion:(()->Void)?) {
         
         imageUrlString = urlString
         
@@ -29,8 +29,12 @@ class PhotoView : UIImageView {
             completion?()
             return
         }
-        self.image = nil
-        self.layer.opacity = 0
+        
+        if !isLargeView {
+            self.image = nil
+            self.layer.opacity = 0
+        }
+        
         let urlRequest = URLRequest(url: url)
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -54,7 +58,9 @@ class PhotoView : UIImageView {
                 }
                 
                 imageCache.setObject(imageToCache!, forKey: urlString as NSString)
-                self.setImageVisibleWithAnimation()
+                if !isLargeView {
+                    self.setImageVisibleWithAnimation()
+                }
                 completion?()
             }
         }

@@ -18,9 +18,9 @@ class SearchResultTableViewCell : UITableViewCell {
     
     func setupUI(data:Photo) {
         viewImgWrapper.backgroundColor = UIColor.init(hexString: data.bgColor)
-        imgPhoto.loadImageUsingUrlString(urlString: data.imageUrls.regular,completion: nil)
+        imgPhoto.loadImageUsingUrlString(urlString: data.imageUrls.regular,isLargeView: false,completion: nil)
         imgPhoto.contentMode = .scaleAspectFill
-        imgUserProfile.loadImageUsingUrlString(urlString: data.user.profileImages.medium,completion: nil)
+        imgUserProfile.loadImageUsingUrlString(urlString: data.user.profileImages.medium,isLargeView: false,completion: nil)
         lblUsername.text = data.user.name
         lblSentDate.text = data.createdAt
     }

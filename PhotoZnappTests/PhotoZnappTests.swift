@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import PhotoZnapp
 
 class PhotoZnappTests: XCTestCase {
     
