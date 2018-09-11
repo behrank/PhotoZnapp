@@ -18,6 +18,7 @@ class PhotoTableViewCell : UITableViewCell {
     internal func setupCell(photo: Photo,cellHeight:CGFloat) {
         self.activity.startAnimating()
         cellData = photo
+        cellImage.image = UIImage.loadFromCacheFor(url: photo.imageUrls.thumb)
         cellImage.loadImageUsingUrlString(urlString: photo.imageUrls.regular, completion: {
             self.activity.stopAnimating()
         })

@@ -20,7 +20,7 @@ class ProfileRowCell : UITableViewCell {
 
         imgUserProfile.loadImageUsingUrlString(urlString: data.user.profileImages.medium,completion: nil)
         lblUsername.text = data.user.name
-        lblSentDate.text = data.createdAt
+        lblSentDate.text = data.createdAt.makeDateStringReadable()
         lblDescription.text = data.description ?? ""
         lblTitleAbout.isHidden = lblDescription.text == ""
     }

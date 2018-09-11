@@ -41,7 +41,7 @@
                 <outlet property="cellImage" destination="5Yp-31-C08" id="27W-Oc-brz"/>
                 <outlet property="consImageViewHeight" destination="aW8-A3-3Oc" id="obC-Fp-9mn"/>
             </connections>
-            <point key="canvasLocation" x="-279.19999999999999" y="-196.10194902548727"/>
+            <point key="canvasLocation" x="-279.19999999999999" y="-196.55172413793105"/>
         </tableViewCell>
     </objects>
 </document>

@@ -12,7 +12,6 @@
 		0F3EC91D214118EE00FB3062 /* BKTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EC91C214118EE00FB3062 /* BKTransition.swift */; };
 		0F3EC91F214120D800FB3062 /* HorizontalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EC91E214120D800FB3062 /* HorizontalPageViewController.swift */; };
 		0F3EC9212141211500FB3062 /* HorizontalPageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EC9202141211400FB3062 /* HorizontalPageViewCell.swift */; };
-		0F3EC9222141D1C900FB3062 /* HorizontalPageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EC9202141211400FB3062 /* HorizontalPageViewCell.swift */; };
 		0F3EC927214271F100FB3062 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EC926214271F100FB3062 /* PhotoTableViewCell.swift */; };
 		0F3EC929214299CA00FB3062 /* ProfileRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EC928214299CA00FB3062 /* ProfileRowCell.swift */; };
 		0F3EC92B21429A0600FB3062 /* ProfileRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3EC92A21429A0600FB3062 /* ProfileRowCell.xib */; };
@@ -95,6 +94,8 @@
 		0FC7549021470F9B00A660AF /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7548A21470F9B00A660AF /* LandingViewController.swift */; };
 		0FC7549121470F9B00A660AF /* LandingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7548B21470F9B00A660AF /* LandingInteractor.swift */; };
 		0FC754932147132100A660AF /* AnimatedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC754922147132100A660AF /* AnimatedNavigationController.swift */; };
+		0FC754992147B57B00A660AF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC754982147B57B00A660AF /* String.swift */; };
+		0FC7549A2147B58300A660AF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC754982147B57B00A660AF /* String.swift */; };
 		5C4269598B021BFD51A7C6CC /* Pods_PhotoZnappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D8DF00E3BBA6D0D106BA49 /* Pods_PhotoZnappUITests.framework */; };
 		677CC24BBDE99A58F13CD9BD /* Pods_PhotoZnapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09247C85C3D051F821D19698 /* Pods_PhotoZnapp.framework */; };
 		99E67CA8FA6A8CE08580F2A8 /* Pods_PhotoZnappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C58D7C5B2A7C833C5BF9BAD5 /* Pods_PhotoZnappTests.framework */; };
@@ -214,6 +215,7 @@
 		0FC7548A21470F9B00A660AF /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		0FC7548B21470F9B00A660AF /* LandingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingInteractor.swift; sourceTree = "<group>"; };
 		0FC754922147132100A660AF /* AnimatedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedNavigationController.swift; sourceTree = "<group>"; };
+		0FC754982147B57B00A660AF /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		172D0CA55C1C00663BC78042 /* Pods-PhotoZnappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoZnappUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoZnappUITests/Pods-PhotoZnappUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2AA45D8752307EDA94F692EE /* Pods-PhotoZnappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoZnappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoZnappTests/Pods-PhotoZnappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		57F4F5CE8806801BF046CC54 /* Pods-PhotoZnapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoZnapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoZnapp/Pods-PhotoZnapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				0F830A97213964FC0080EAA8 /* UITextViewExtensions.swift */,
 				0F3EC91A2141182000FB3062 /* UICollectionViewExtensions.swift */,
 				0F3EC92E21454E0600FB3062 /* UINavigationExtensions.swift */,
+				0FC754982147B57B00A660AF /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -947,6 +950,7 @@
 				0FC7548C21470F9B00A660AF /* LandingPresenter.swift in Sources */,
 				0F3EC92F21454E0600FB3062 /* UINavigationExtensions.swift in Sources */,
 				0FC7549021470F9B00A660AF /* LandingViewController.swift in Sources */,
+				0FC754992147B57B00A660AF /* String.swift in Sources */,
 				0FC7546B2146851200A660AF /* SearchModels.swift in Sources */,
 				0F830A90213964770080EAA8 /* UIColorExtensions.swift in Sources */,
 				0F830A9E213965BF0080EAA8 /* UIImageExtensions.swift in Sources */,
@@ -967,8 +971,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC7549A2147B58300A660AF /* String.swift in Sources */,
 				0F830A6C213962E60080EAA8 /* PhotoZnappTests.swift in Sources */,
-				0F3EC9222141D1C900FB3062 /* HorizontalPageViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
