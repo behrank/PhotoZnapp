@@ -336,7 +336,6 @@
 				0F3EC9232141D30500FB3062 /* Collection Cells */,
 				0F3EC9362145E34500FB3062 /* Loader */,
 				0F3EC925214271C000FB3062 /* Table Cells */,
-				0FC7547721470E3500A660AF /* BaseTabBarController.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -509,6 +508,7 @@
 				0F830AA32139670F0080EAA8 /* BaseViewController.swift */,
 				0F3EC9322145D8BD00FB3062 /* BaseCollectionViewController.swift */,
 				0F4510082139730E00D6B363 /* BaseNavigationController.swift */,
+				0FC7547721470E3500A660AF /* BaseTabBarController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
